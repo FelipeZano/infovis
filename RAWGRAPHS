@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi Trabajo</title>
+</head>
+<body>
+  <h1>Gráfico en SVG</h1>
+  <img src="viz.svg" alt="Visualización RAWGraphs">
+</body>
+</html>
