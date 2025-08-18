@@ -1,2 +1,2 @@
 # infovis
-Mi repositorio de INFOVIS ITBA 2Q2025
+FELIPE ZANEL INFOVIS ITBA 2025
