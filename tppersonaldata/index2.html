@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Datos de Musica - Felipe Zanel</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: Arial, sans-serif; background:#fff; color:#333; }
+
+    header {
+      background:#000; color:#fff;
+      display:flex; justify-content:space-between; align-items:center;
+      padding:15px 30px;
+    }
+    header h1 { font-size:1.5rem; }
+    header img { height:40px; }
+
+    .carousel-container {
+      position:relative;
+      width:100%;
+      max-width:900px;
+      margin:40px auto;
+      overflow:hidden;
+    }
+    .carousel-slide {
+      display:flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .carousel-item {
+      min-width:100%;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      padding:20px;
+    }
+    .carousel-item iframe,
+    .carousel-item img,
+    .carousel-item svg {
+      max-width:100%;
+      max-height:70vh;
+    }
+
+    .prev, .next {
+      position:absolute; top:50%;
+      transform:translateY(-50%);
+      background: rgba(0,0,0,0.6);
+      color:#fff; border:none; padding:10px 15px;
+      cursor:pointer; font-size:18px; border-radius:50%;
+    }
+    .prev { left:15px; }
+    .next { right:15px; }
+    .prev:hover, .next:hover { background: rgba(0,0,0,0.9); }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>TP DATOS ZANEL</h1>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify Logo">
+</header>
+
+<div class="carousel-container">
+  <div class="carousel-slide" id="carousel">
+
+    <!-- Gráfico 1 -->
+    <div class="carousel-item">
+      <h5 style="text-align:center; margin-bottom:10px;">Canciones más escuchadas en 2024/25</h5>
+      <div class="flourish-embed flourish-hierarchy" data-src="visualisation/25243766" style="width:100%;height:500px;"></div>
+    </div>
+
+    <!-- Gráfico 2 -->
+    <div class="carousel-item">
+      <h5 style="text-align:center; margin-bottom:10px;">Crecimiento de top 10 artistas 24/25</h5>
+      <iframe 
+        src="https://public.tableau.com/views/Libro2_17585078839240/Hoja2?:showVizHome=no&:embed=true" 
+        width="100%" 
+        height="600" 
+        frameborder="0" 
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-- Gráfico 3 -->
+    <div class="carousel-item">
+      <h5 style="text-align:center; margin-bottom:10px;">¿Cuáles son tus artistas más escuchados en los últimos dos años?</h5>
+      <div class='tableauPlaceholder' id='viz1758506183423' style='position: relative; min-height:500px;'>
+        <noscript>
+          <a href='#'>
+            <img alt='Hoja 1' src='https://public.tableau.com/static/images/Li/Libro1_17585061271820/Hoja1/1_rss.png' style='border:none;' />
+          </a>
+        </noscript>
+        <object class='tableauViz' style='width:100%; height:600px;'>
+          <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+          <param name='embed_code_version' value='3' />
+          <param name='name' value='Libro1_17585061271820/Hoja1' />
+          <param name='tabs' value='no' />
+          <param name='toolbar' value='yes' />
+        </object>
+      </div>
+    </div>
+
+    <!-- Gráfico 4 -->
+    <div class="carousel-item">
+      <h5 style="text-align:center; margin-bottom:10px;">¿Qué tipo de oyente soy según Spotify?</h5>
+      <img src="viz-3.svg" alt="Tipo de oyente en RAWGraphs">
+    </div>
+
+  </div>
+
+  <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+  <button class="next" onclick="moveSlide(1)">&#10095;</button>
+</div>
+
+<script src="https://public.flourish.studio/resources/embed.js"></script>
+<script type='text/javascript' src='https://public.tableau.com/javascripts/api/viz_v1.js'></script>
+
+<script>
+  let slideIndex = 0;
+  const slideContainer = document.getElementById('carousel');
+  const totalSlides = slideContainer.children.length;
+
+  function moveSlide(direction) {
+    slideIndex = (slideIndex + direction + totalSlides) % totalSlides;
+    slideContainer.style.transform = `translateX(-${slideIndex * 100}%)`;
+  }
+</script>
+
+</body>
+</html>
